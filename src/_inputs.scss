@@ -1,0 +1,30 @@
+// input styles
+
+// input, textare
+textarea, input, .input {
+   padding: 4px;
+   color: inherit;
+   border: 1px solid white;
+   font-size: inherit;
+   font-family: inherit;
+   font-weight: bold;
+   border-radius: 0;
+   -webkit-user-modify: read-write-plaintext-only;
+   box-shadow: none;
+   background-color: white;
+
+   // darker buttons (can be used on white underground)
+   &.darken {
+      background-color: #EEE;
+      border-color: #EEE;
+   }
+}
+
+
+// placeholder
+::-webkit-input-placeholder { color: #AAA; font-weight: normal; }
+:-ms-input-placeholder { color:#AAA!important; font-weight: normal; }
+textarea:-ms-input-placeholder  {color: #AAA!important; font-weight: normal;}
+input:-ms-input-placeholder  {color: #AAA!important; font-weight: normal;}
+:-moz-placeholder  { color: #AAA; font-weight: normal;}
+::-moz-placeholder  { color: #AAA; font-weight: normal;}

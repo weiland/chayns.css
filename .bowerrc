@@ -1,0 +1,6 @@
+{
+  "directory": "vendor",
+  "scripts": {
+    "postinstall": "cp vendor/normalize.css/normalize.css src/vendor/_normalize.scss"
+  }
+}
