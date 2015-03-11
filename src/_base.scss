@@ -1,12 +1,20 @@
 // base styles
 
-body {
-   background-color: #FFFFFF;
-   color: #545454;
-   font-size: 14px;
-   font-family: Tahoma, "Lucida Grande", Arial;
-   line-height: 23px;
-   visibility: hidden;
-   padding-bottom: 20px;
+html {
+   background-color: #FFF;
+   color: $base-ui-color;
+   font-size: $base-font-size;
+   font-family: $base-font-family;
+   line-height: $base-line-height;
 }
 
+.tapp {
+  margin: auto 0;
+  padding: 15px 10px 20px 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.tapp--wide {
+  max-width: 850px;
+}

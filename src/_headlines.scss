@@ -1,34 +1,36 @@
 // all headline styles
-// TODO: consider removing tag styles and only keep classes
 
-h1, .h1 {
-   font-size: 24px;
-   font-weight: normal;
-   line-height: 29px;
-   margin-bottom: 10px;
-   color: #6E6E6E; 
+@mixin headline($font-size, $bottom-margin:10px) {
+  margin: 0 0 $bottom-margin 0;
+  @include font-size($font-size);
 }
 
-h2, .h2 {
-   font-size: 19px;
-   font-weight: normal;
-   line-height: 24px;
-   margin-bottom: 10px;
-   color: #6E6E6E; 
+.h1 {
+   @include headline($h1-size);
+   color: darken($base-ui-color, 10);
 }
 
-h3, .h3 {
-   font-size: 17px;
-   font-weight: normal;
-   line-height: 22px;
-   margin-bottom: 10px;
-   color: #6E6E6E; 
+.h2 {
+  @include headline($h2-size);
+  color: darken($base-ui-color, 10);
 }
 
-h4, .h4 {
-   font-size: 13px;
-   font-weight: normal;
-   line-height: 18px;
-   margin-bottom: 10px;
-   color: #8A8A8A;
+.h3 {
+  @include headline($h3-size);
+  color: darken($base-ui-color, 10);
+}
+
+.h4 {
+  @include headline($h4-size);
+  color: darken($base-ui-color, 20);
+}
+
+.h5 {
+  @include headline($h5-size);
+  color: darken($base-ui-color, 30);
+}
+
+.h6 {
+  @include headline($h6-size);
+  color: darken($base-ui-color, 30);
 }

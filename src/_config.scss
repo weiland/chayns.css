@@ -1,13 +1,21 @@
-// main configuration
-// TODO: consider splitting into _fonts.scss, _colors.scss if it gets to big
+// TODO: consider base, generic and objects structure
+// base configuration
+$base-font-size:    16px!default;
+$base-line-height:  24px!default;
 
-// fonts
-$font-family: Arial, sans-serif;
-$main-font: Tahoma;
+$base-font-family:  Tahoma, "Lucida Grande", Arial, sans-serif!default;
 
-// colors
-$main-color: #222;
+$base-ui-color:     #545454!default;
+
+// font sizes
+$h1-size:           30px!default; // .alpha
+$h2-size:           24px!default; // .beta
+$h3-size:           20px!default; // .gamma
+$h4-size:           16px!default; // .delta
+$h5-size:           14px!default; // .epsilon
+$h6-size:           12px!default; // .epsilon
+// would continue with 10, or 36, 48, 72, 96
 
 // Mr Grey is expecting you
-$grey: #6E6E6E;
-$lighter-grey: #8A8A8A;
+$grey:              #6E6E6E;
+$lighter-grey:      #8A8A8A;

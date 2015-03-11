@@ -1,9 +1,16 @@
 # chayns.css
 
+> Obey **BEM** and *OOCSS* and **SCSS**
+> to build modular and scalable CSS code
+
 ## Installation
 - node
 - gulp
 - bower
+
+chayns.css is based on [inuit.css](https://github.com/csswizardry/inuit.css)
+And consider reading and learning:
+[http://cssguidelin.es/](http://cssguidelin.es/)
 
 ```
 $ npm install

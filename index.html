@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js chayns--mobile chayns-color--0" lang="en">
 <head>
   <meta charset="utf-8">
   <title>chayns.css dev page</title>
-  <link rel="stylesheet" href="dist/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="dist/chayns.css">
+  <style>
+    .mode--dev .tapp {
+      border: 1px solid #000;
+    }
+  </style>
 </head>
 <body>
-
-  <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
+  <div class="tapp">
+    <h1 class="headline h1">Chayns V2</h1>
+    <div class="content">
+      Chayns V3 css
     </div>
   </div>
-
+  <script src="http://chayns1.tobit.com/SlitteRessource/API/v3/js/chayns.js"></script>
+  <script>
+    /* global chayns */
+    if (typeof chayns === 'undefined') {
+      throw new Error('There is no chayns :(');
+    }
+    var log = chayns.getLogger('pw.css');
+    /**
+     * chayns.ready promise
+     */
+    chayns.ready().then(function(data) {
+      log.info('Chayns is ready: ', data);
+    }, function() {
+      log.info('Chayns is ready without being in Chayns Web or Chayns App.');
+    });
+  </script>
 </body>
 </html>
