@@ -1,6 +1,10 @@
 // TODO: consider base, generic and objects structure
 // base configuration
-$base-font-size:    16px!default;
+
+$global-border-box: true!default;;
+
+//$html-font-size:    62.5%;
+$base-font-size:    16px!default; // equals 16px
 $base-line-height:  24px!default;
 
 $base-font-family:  Tahoma, "Lucida Grande", Arial, sans-serif!default;
@@ -8,13 +12,17 @@ $base-font-family:  Tahoma, "Lucida Grande", Arial, sans-serif!default;
 $base-ui-color:     #545454!default;
 
 // font sizes
-$h1-size:           30px!default; // .alpha
-$h2-size:           24px!default; // .beta
-$h3-size:           20px!default; // .gamma
-$h4-size:           16px!default; // .delta
-$h5-size:           14px!default; // .epsilon
-$h6-size:           12px!default; // .epsilon
+$h1-size:           24px!default; // .alpha
+$h2-size:           20px!default; // .beta
+$h3-size:           16px!default; // .gamma
+$h4-size:           14px!default; // .delta
+$h5-size:           12px!default; // .epsilon
+//$h6-size:           10px!default; // .epsilon
 // would continue with 10, or 36, 48, 72, 96
+
+// tapps
+$tapp-popup-width: 850px;
+$tapp-max-width:   600px;
 
 // Mr Grey is expecting you
 $grey:              #6E6E6E;

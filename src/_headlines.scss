@@ -1,36 +1,44 @@
-// all headline styles
+// all heading styles
 
 @mixin headline($font-size, $bottom-margin:10px) {
   margin: 0 0 $bottom-margin 0;
+  font-weight: normal;
   @include font-size($font-size);
 }
 
+h1,
 .h1 {
    @include headline($h1-size);
    color: darken($base-ui-color, 10);
 }
 
+h2,
 .h2 {
   @include headline($h2-size);
   color: darken($base-ui-color, 10);
 }
 
+h3,
 .h3 {
   @include headline($h3-size);
   color: darken($base-ui-color, 10);
 }
 
+h4,
 .h4 {
   @include headline($h4-size);
   color: darken($base-ui-color, 20);
 }
 
+h5,
 .h5 {
   @include headline($h5-size);
   color: darken($base-ui-color, 30);
 }
 
-.h6 {
-  @include headline($h6-size);
-  color: darken($base-ui-color, 30);
-}
+// TODO: remove, not used
+//h6,
+//.h6 {
+//  @include headline($h6-size);
+//  color: darken($base-ui-color, 30);
+//}

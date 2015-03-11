@@ -5,3 +5,11 @@
     line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
   }
 }
+
+@mixin vendor($property, $value...){
+  -webkit-#{$property}:$value;
+  -moz-#{$property}:$value;
+  -ms-#{$property}:$value;
+  -o-#{$property}:$value;
+  #{$property}:$value;
+}

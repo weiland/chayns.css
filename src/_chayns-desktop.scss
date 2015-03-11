@@ -1,5 +1,20 @@
 .chayns--desktop {
+
+  body {
+    font-family: 'Roboto';
+  }
+
   .tapp {
     padding: 50px 60px 30px 60px;
   }
+
+  .tapp__intro,
+  .tapp__content {
+    margin-bottom: 40px;
+
+    &.is-dark {
+      padding: 25px; // padding due to different background color
+    }
+  }
+
 }

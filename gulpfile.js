@@ -22,7 +22,7 @@ gulp.task('build', function () {
 
 // watches local files and recompiles the sass on change
 gulp.task('watch', function(callback) {
-  gulp.watch('src/*.scss', ['build']);
+  gulp.watch(['src/*.scss', 'index.html'], ['build']);
 });
 
 // local dev server serving an example dev page to see changes

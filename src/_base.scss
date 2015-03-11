@@ -1,20 +1,125 @@
 // base styles
 
 html {
-   background-color: #FFF;
-   color: $base-ui-color;
-   font-size: $base-font-size;
-   font-family: $base-font-family;
-   line-height: $base-line-height;
+//  font-size: $base-font-size;
+//   font-size: $html-font-size; // 62.5% (so 1.4rem === 14px)
+  font-family: sans-serif;
 }
+
+body {
+  line-height: $base-line-height;
+  font-size: $base-font-size; // equals 16px
+  font-family: $base-font-family;
+//  background-color: #FFF;
+  color: $base-ui-color;
+}
+
+// TODO: move out styles below
+// text style
+p:not(:last-child),
+.p:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+// animation TODO: is considered as not so good
+.has-animation,
+.has-animation::after,
+.has-animation::before {
+  @include vendor(transition, 0.5s ease-in-out);
+}
+
+// links
+// TODO: underlined or bold?
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+// lists
+ul {
+  margin-bottom: 15px;
+  list-style: none;
+
+  &.list {
+    padding-left: 30px;
+    list-style-type: square;
+  }
+
+  &.is-vertical {
+    float: left;
+  }
+}
+
+// buttons
+.button {
+  /*text-transform: uppercase;*/
+  text-align: center;
+  display: inline-block;
+  padding: 4px 14px;
+  background-color: #8A8A8A; /*100%*/
+  color: #FFFFFF;
+  cursor: pointer;
+  @include vendor(user-select, none);
+  @include vendor(transition, background 150ms ease);
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    background-color: #8A8A8A; /*80%*/
+  }
+
+  &.gray {
+    opacity: 0.5;
+    @include vendor(transition, none);
+    cursor: default;
+  }
+}
+
+
+.button__choose {
+  text-align: center;
+  display: inline-block;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 2px 15px;
+  background-color: #E2E2E2; /*20%*/
+  cursor: pointer;
+  @include vendor(transition, background 150ms ease);
+
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  &:not(.disabled):hover {
+    background-color: #D3D3D3; /*30%*/
+  }
+}
+
+
 
 .tapp {
   margin: auto 0;
   padding: 15px 10px 20px 10px;
   width: 100%;
-  max-width: 600px;
+  max-width: $tapp-max-width;
 }
 
 .tapp--wide {
-  max-width: 850px;
+  max-width: $tapp-popup-width;
 }
+
+.tapp__intro,
+.tapp__content{
+  margin-bottom: 12px;
+
+  &.is-dark {
+    padding: 12px; // padding due to different background color
+    background: #F2F2F2;
+  }
+}
+
+.tapp__intro {
+  margin-bottom: 30px;
+}
+
