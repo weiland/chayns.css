@@ -1,0 +1,42 @@
+// Tapps: Main Layout
+//
+// Styleguide 1.0
+
+// Tapp Base Layout to start a new Tapp
+//
+// Styleguide 1.1
+.tapp {
+  margin: auto 0;
+  padding: 15px 10px 20px 10px;
+  width: 100%;
+  max-width: $tapp-max-width;
+}
+
+// Wide Tapp: larger layout for popup tapps with max 850px
+//
+// Styleguide 1.2
+.tapp--wide {
+  max-width: $tapp-popup-width;
+}
+
+// Tapp Intro & Tapp Content
+//
+// .is-dark - Dark background with padding to emphasize content
+//
+// Styleguide 1.3
+.tapp__intro,
+.tapp__content{
+  margin-bottom: 12px;
+
+  &.is-dark {
+    padding: 12px; // padding due to different background color
+    background: #F2F2F2;
+  }
+}
+
+// Tapp Intro used for intro text
+//
+// Styleguide 1.4
+.tapp__intro {
+  margin-bottom: 30px;
+}

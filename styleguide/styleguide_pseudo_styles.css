@@ -1,0 +1,36 @@
+a.pseudo-class-active,
+a.pseudo-class-hover {
+  outline: 0;
+}
+
+.text-input.pseudo-class-active,
+.text-input.pseudo-class-focus,
+textarea.pseudo-class-active,
+textarea.pseudo-class-focus {
+  cursor: text;
+  outline: none;
+}
+
+a.pseudo-class-visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button.pseudo-class-hover,
+.button.pseudo-class-focus {
+  background-color: #8A8A8A;
+  /*80%*/
+}
+
+.button__choose:not(.is-disabled).pseudo-class-hover {
+  background-color: #D3D3D3;
+  /*30%*/
+}
+
+.chayns-color--0 a.pseudo-class-visited {
+  border-bottom: 1px solid #37913C;
+}
+
+.chayns-color--4 a.pseudo-class-visited {
+  border-bottom: 1px solid #0055A4;
+}

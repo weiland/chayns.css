@@ -1,32 +1,34 @@
 // Main App Styles
 // only import files here
 
-
-// generic
 @import 'config';
-@import 'mixins';
-@import 'normalize';
-@import 'reset';
-// clearfix (should be extended)
 
-// base: html, body, headings, forms, lists, tables, code, paragraph and other high level elements
+@import 'vendor/normalize';
+
+@import 'mixins';
+
+@import 'reset';
+
 @import 'roboto';
+
 @import 'base';
-@import 'base.images';
+
+@import 'tapps';
+
+@import 'buttons';
 
 @import 'color-schemes';
 
 @import 'ios';
 @import 'android';
+
 @import 'chayns-web';
+
 @import 'chayns-mobile';
+
 @import 'chayns-desktop';
 
-// objects
-//@import 'grids';
-@import 'buttons';
-@import 'headlines';
-@import 'inputs';
 
-// components
-@import 'tapps';
+@import 'headlines';
+
+@import 'inputs';
