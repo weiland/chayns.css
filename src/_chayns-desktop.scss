@@ -1,7 +1,10 @@
 .chayns--desktop {
 
+  overflow: hidden; // prevents scrolling for chayns web
+
   body {
     font-family: 'Roboto';
+    overflow: hidden;
   }
 
   .tapp {

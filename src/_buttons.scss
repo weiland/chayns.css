@@ -1,0 +1,51 @@
+// Standard Button
+//
+// :hover, :focus, .is-active - Darker button state
+// .grey                      - Grey button
+.button {
+  /*text-transform: uppercase;*/
+  text-align: center;
+  display: inline-block;
+  padding: 4px 14px;
+  background-color: #8A8A8A; /*100%*/
+  color: #FFFFFF;
+  cursor: pointer;
+  @include vendor(user-select, none);
+  @include vendor(transition, background 150ms ease);
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    background-color: #8A8A8A; /*80%*/
+  }
+
+  &.grey {
+    opacity: 0.5;
+    @include vendor(transition, none);
+    cursor: default;
+  }
+}
+
+// Choose Button
+//
+// .is-disabled - Disabled button grey button
+// :hover       - Hovered button darker background
+.button__choose {
+  text-align: center;
+  display: inline-block;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 2px 15px;
+  background-color: #E2E2E2; /*20%*/
+  cursor: pointer;
+  @include vendor(transition, background 150ms ease);
+
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  &:not(.is-disabled):hover {
+    background-color: #D3D3D3; /*30%*/
+  }
+}
