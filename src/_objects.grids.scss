@@ -1,0 +1,190 @@
+// grid system by inuit.css <3
+
+.grid {
+  margin-left: -$base-spacing-unit;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.grid > .grid {
+  margin-left: 0;
+}
+
+.grid__item {
+  display: inline-block;
+  width: 100%;
+  padding-left: $base-spacing-unit;
+  vertical-align: top;
+}
+
+//@mixin grid-setup($namespace: "") {
+//  /**
+//  * Whole
+//  */
+//  .#{$namespace}one-whole         { width:100%; }
+//
+//
+//  /**
+//  * Halves
+//  */
+//  .#{$namespace}one-half          { width:50%; }
+//
+//
+//  /**
+//  * Thirds
+//  */
+//  .#{$namespace}one-third         { width:33.333%; }
+//  .#{$namespace}two-thirds        { width:66.666%; }
+//
+//
+//  /**
+//  * Quarters
+//  */
+//  .#{$namespace}one-quarter       { width:25%; }
+//  .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
+//  .#{$namespace}three-quarters    { width:75%; }
+//
+//
+//  /**
+//  * Fifths
+//  */
+//  .#{$namespace}one-fifth         { width:20%; }
+//  .#{$namespace}two-fifths        { width:40%; }
+//  .#{$namespace}three-fifths      { width:60%; }
+//  .#{$namespace}four-fifths       { width:80%; }
+//
+//
+//  /**
+//  * Sixths
+//  */
+//  .#{$namespace}one-sixth         { width:16.666%; }
+//  .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
+//  .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
+//  .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
+//  .#{$namespace}five-sixths       { width:83.333%; }
+//
+//
+//  /**
+//  * Eighths
+//  */
+//  .#{$namespace}one-eighth        { width:12.5%; }
+//  .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
+//  .#{$namespace}three-eighths     { width:37.5%; }
+//  .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
+//  .#{$namespace}five-eighths      { width:62.5%; }
+//  .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
+//  .#{$namespace}seven-eighths     { width:87.5%; }
+//
+//
+//  /**
+//  * Tenths
+//  */
+//  .#{$namespace}one-tenth         { width:10%; }
+//  .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
+//  .#{$namespace}three-tenths      { width:30%; }
+//  .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
+//  .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
+//  .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
+//  .#{$namespace}seven-tenths      { width:70%; }
+//  .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
+//  .#{$namespace}nine-tenths       { width:90%; }
+//
+//
+//  /**
+//  * Twelfths
+//  */
+//  .#{$namespace}one-twelfth       { width:8.333%; }
+//  .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
+//  .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
+//  .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
+//  .#{$namespace}five-twelfths     { width:41.666% }
+//  .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
+//  .#{$namespace}seven-twelfths    { width:58.333%; }
+//  .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
+//  .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
+//  .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
+//  .#{$namespace}eleven-twelfths   { width:91.666%; }
+//}
+//
+//@include grid-setup();
+//
+//
+//@include media-query(mobile){
+//  @include grid-setup("mobile-");
+//}
+//
+//@include media-query(desktop){
+//  @include grid-setup("desktop-");
+//}
+//
+//@include media-query(desk){
+//  @include grid-setup("desk-");
+//}
+//
+//@include media-query(retina){
+//  @include grid-setup("retina-");
+//}
+
+
+//$inuit-widths-namespace: null !default;
+
+// Do we want to use classes like `<div class="u-1/4">` instead of
+// `<div class="u-1-of-4">`?
+
+@mixin inuit-widths($inuit-widths-columns, $inuit-widths-breakpoint: null) {
+
+  // Loop through the number of columns for each denominator of our fractions.
+  @each $inuit-widths-denominator in $inuit-widths-columns {
+
+    // If we’re trying to make wholes, just spit a 100% width utility out
+    // one time only.
+    @if ($inuit-widths-denominator == 1) {
+      .c-1-1#{$inuit-widths-breakpoint} {
+        width: 100% !important;
+      }
+    } @else {
+
+      // Begin creating a numberator for our fraction up until we hit the
+      // denominator.
+      @for $inuit-widths-numerator from 1 to $inuit-widths-denominator {
+
+        // Build a class in the format `.c-3/4` or `.c-3-of-4`.
+        .c-#{$inuit-widths-numerator}-#{$inuit-widths-denominator}#{$inuit-widths-breakpoint} {
+          width: ($inuit-widths-numerator / $inuit-widths-denominator) * 100% !important;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+$inuit-widths-columns-responsive: (
+  1,
+  2,
+  3,
+  4,
+  5,
+) !default;
+
+// Loop over our breakpoints defined in _settings.responsive.scss
+@each $breakpoint in $breakpoints {
+
+  // Get the name of the breakpoint.
+  $alias: nth($breakpoint, 1);
+
+
+
+  @include media-query($alias) {
+
+    // Loop through each of our column sizes and generate its responsive width
+    // classes.
+    @each $inuit-widths-column in $inuit-widths-columns-responsive {
+      @include inuit-widths($inuit-widths-column, -#{$alias});
+    }
+
+  }
+
+}

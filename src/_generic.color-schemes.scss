@@ -1,0 +1,47 @@
+// TODO: add other colorSchemes and properties
+
+// ice
+.chayns-color--0 {
+  .headline,
+  a {
+    color: #37913C;
+  }
+}
+
+// forest
+
+
+@mixin colors-template($scheme, $name, $base-color) {
+  .chayns-color--#{$scheme} {
+
+    .headline,
+    a {
+      color: $base-color;
+    }
+
+    $steps: (10,20,30);
+    @each $step in $steps {
+
+    }
+
+  }
+}
+
+$color-schemes: (
+  1 "stone" "#828282", // also tobit
+//  2 "tobit" "707FAF",
+//  3,
+  4 "ice" "#0055A4",
+  5 "forest" "37913C",
+  6 "raspberry" "#AA0000",
+  7 "desert" "#9F713A",
+  8 "orange" "#FF9800", // pure orange
+  9 "lavender" "#5E4883"
+) !default;
+
+@each $color-scheme in $color-schemes {
+  $scheme: nth($color-scheme, 1);
+  $name: nth($color-scheme, 2);
+  $color: nth($color-scheme, 3);
+  @include colors-template($scheme, $name, $color);
+}

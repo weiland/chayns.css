@@ -6,10 +6,14 @@
 //
 // Styleguide 1.1
 .tapp {
-  margin: auto 0;
-  padding: 15px 10px 20px 10px;
+  margin: 0 auto;
+  padding: 15px 10px 20px;
   width: 100%;
   max-width: $tapp-max-width;
+}
+
+.tapp--no-padding {
+  padding: 0!important; // has to overwrite eventual media queries
 }
 
 // Wide Tapp: larger layout for popup tapps with max 850px
@@ -39,4 +43,38 @@
 // Styleguide 1.4
 .tapp__intro {
   margin-bottom: 30px;
+}
+
+
+.chayns--desktop {
+
+  overflow: hidden; // prevents scrolling for chayns web
+
+  body {
+    overflow: hidden;
+  }
+
+}
+
+// TODO: fix mq
+@include media-query(desktop)  {
+
+  // TODO: can be removed since Roboto is the main font
+//  body {
+//    font-family: 'Roboto';
+//  }
+
+  .tapp {
+    padding: 50px 60px 30px 60px;
+  }
+
+  .tapp__intro,
+  .tapp__content {
+    margin-bottom: 40px;
+
+    &.is-dark {
+      padding: 25px; // padding due to different background color
+    }
+  }
+
 }

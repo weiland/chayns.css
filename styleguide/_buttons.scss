@@ -12,28 +12,47 @@
 //
 // Styleguide 3.1
 .button {
-  /*text-transform: uppercase;*/
-  text-align: center;
-  display: inline-block;
-  padding: 4px 14px;
-  background-color: #8A8A8A; /*100%*/
-  color: #FFFFFF;
-  cursor: pointer;
-  @include vendor(user-select, none);
-  @include vendor(transition, background 150ms ease);
 
-  &:hover,
-  &:focus,
-  &.is-active {
-    background-color: #8A8A8A; /*80%*/
+  margin: 0;
+  border: none;
+  padding: 0 1em;
+  line-height: 3;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:hover{
+    text-decoration:none;
   }
 
-  &.grey {
-    opacity: 0.5;
-    @include vendor(transition, none);
-    cursor: default;
+  &:active,
+  &:focus{
+    outline:none;
   }
 }
+
+.button--grey {
+  opacity: 0.5;
+  @include vendor(transition, none);
+  cursor: default;
+}
+
+// TODO: improve buttons
+//.button {
+//  text-align: center;
+//  display: inline-block;
+//  padding: 4px 14px;
+//  background-color: #8A8A8A; /*100%*/
+//  color: #FFFFFF;
+//  cursor: pointer;
+//  @include vendor(user-select, none);
+//  @include vendor(transition, background 150ms ease);
+//
+//  &:hover,
+//  &:focus,
+//  &.is-active {
+//    background-color: #8A8A8A; /*80%*/
+//  }
+//}
 
 // Choose Button
 //
@@ -41,7 +60,7 @@
 // :hover       - Hovered button darker background
 //
 // Styleguide 3.2
-.button__choose {
+.button--choose {
   text-align: center;
   display: inline-block;
   border-radius: 0;

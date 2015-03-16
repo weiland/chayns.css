@@ -18,6 +18,7 @@
   padding: 4px 14px;
   background-color: #8A8A8A; /*100%*/
   color: #FFFFFF;
+  border: 0 #000;
   cursor: pointer;
   @include vendor(user-select, none);
   @include vendor(transition, background 150ms ease);
@@ -35,13 +36,58 @@
   }
 }
 
+.button--small {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  line-height: 2;
+}
+
+.button--large {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  line-height: 4;
+}
+
+.button--huge {
+  padding-right: 2em;
+  padding-left: 2em;
+  line-height: 5;
+}
+
+.button--full {
+  width: 100%;
+  padding-right: 0;            /* [1] */
+  padding-left: 0;            /* [1] */
+  text-align: center;
+}
+
+.button--natural{
+  vertical-align: baseline;
+  font-size: inherit;
+  line-height: inherit;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+.button--alpha {
+  font-size: 3rem;
+}
+
+.button--beta {
+  font-size: 2rem;
+}
+
+.button--gamma {
+  font-size: 1rem;
+}
+
 // Choose Button
 //
 // .is-disabled - Disabled button grey button
 // :hover       - Hovered button darker background
 //
 // Styleguide 3.2
-.button__choose {
+.button--choose {
   text-align: center;
   display: inline-block;
   border-radius: 0;

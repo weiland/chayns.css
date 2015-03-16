@@ -1,0 +1,15 @@
+// Links
+//
+// TODO: underlined or bold?
+//
+// Styleguide 2.2
+a {
+  text-decoration: none;
+  color: $base-link-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}

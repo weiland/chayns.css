@@ -9,6 +9,10 @@
     .mode--dev .tapp {
       border: 1px solid #000;
     }
+    .code {
+      margin-bottom: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -28,21 +32,38 @@
     </div>
 
     <div class="tapp__content is-dark">
-      <h2 class="headline">Style</h2>
-      <ul>
-        <li><a href="#">Main Layout</a></li>
-        <li><a href="#">Grids</a></li>
-      </ul>
+      <h2 class="headline">Grids</h2>
+      <div class="u1/2-mobile u1/2-desktop">1</div>
+      <div class="u1/2-mobile u1/2-desktop">1</div>
+      <h3 class="headline">Table</h3>
+      <h3 class="headline">CSS Table</h3>
     </div>
 
     <div class="tapp__content is-dark">
-      <h2 class="headline">Functions</h2>
-      <ul>
-        <li><a href="#">ShowWaitCursor</a></li>
-        <li><a href="#">HideWaitcursor</a></li>
-      </ul>
+      <h2 class="headline">Buttons</h2>
+      <h3 class="headline">Standard Button</h3>
+      <pre class="code"><code>Button Code</code></pre>
+      <div class="button">.button</div>
+      <button class="button">.button</button>
+      <h3 class="headline">Choose Button</h3>
+      <button class="button">.button--choose</button>
+    </div>
+
+    <div class="tapp__content is-dark">
+      <h2 class="headline">Forms</h2>
+      <h3 class="headline">Text</h3>
+      <h3 class="headline">Checkbox</h3>
+      <h3 class="headline">Radiobox</h3>
     </div>
   </div>
+
+  <div class="grid">
+    <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+    <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+    <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+    <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+  </div>
+
   <script src="//chayns1.tobit.com/SlitteRessource/API/v3/js/chayns.js"></script>
   <script>
     /* global chayns */

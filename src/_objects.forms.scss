@@ -1,0 +1,47 @@
+// Forms
+//
+// Styleguide 5.0
+
+// input, textare styles
+//
+// markup:
+// <button class="button"></button>
+//
+// Styleguide 5.1
+
+
+label,
+.label{
+  display:block;
+}
+
+input[type=checkbox].disabled,
+input[type=checkbox][disabled],
+input[type=radio].disabled,
+input[type=radio][disabled] {
+  cursor: not-allowed;
+}
+
+.input {
+  padding: 4px;
+  color: inherit;
+  border: 1px solid white;
+  font-weight: bold;
+  border-radius: 0;
+  -webkit-user-modify: read-write-plaintext-only;
+  box-shadow: none;
+  background-color: white;
+}
+
+.input--dark {
+  background-color: #EEE;
+  border-color: #EEE;
+}
+
+// Placeholder
+//
+// Styleguide 5.2
+.input::-webkit-input-placeholder { color: #AAA; font-weight: normal; }
+.input:-ms-input-placeholder      { color: #AAA; font-weight: normal; }
+.input:-moz-placeholder           { color: #AAA; font-weight: normal;}
+.input::-moz-placeholder          { color: #AAA; font-weight: normal;}
