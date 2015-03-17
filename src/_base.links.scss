@@ -13,3 +13,16 @@ a {
     text-decoration: underline;
   }
 }
+
+// TODO: still useful?
+.link--background {
+  background-color: #E2E2E2;/*20%*/
+}
+
+.link--icon {
+  font-family: 'FontAwesome';
+  color: #8A8A8A;/*80%*/
+  content: "\f08e";
+  padding: 0 5px;
+  text-decoration: none;
+}

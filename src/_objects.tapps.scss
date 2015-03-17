@@ -35,6 +35,7 @@
   &.is-dark {
     padding: 12px; // padding due to different background color
     background: #F2F2F2;
+    //overflow: hidden;// TODO: test if required
   }
 }
 

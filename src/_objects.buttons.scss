@@ -17,25 +17,35 @@
   display: inline-block;
   padding: 4px 14px;
   background-color: #8A8A8A; /*100%*/
-  color: #FFFFFF;
+  color: #FFF;
   border: 0 #000;
   cursor: pointer;
   @include vendor(user-select, none);
   @include vendor(transition, background 150ms ease);
 
-  &:hover,
-  &:focus,
-  &.is-active {
-    background-color: #8A8A8A; /*80%*/
+  &:not(.is-disabled) {
+    &:hover,
+    &:focus,
+    &.is-active {
+      background-color: #8A8A8A; /*80%*/ // TODO: is not 80%?
+    }
   }
 
-  &.grey {
+  &.is-disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  // TODO: what is the difference to .is-disabled?
+  &.is-gray,
+  &.is-grey {
     opacity: 0.5;
     @include vendor(transition, none);
     cursor: default;
   }
 }
 
+// button sizes
 .button--small {
   padding-right: 0.5em;
   padding-left: 0.5em;
@@ -69,6 +79,7 @@
   padding-left: 0.5em;
 }
 
+// button font sizes
 .button--alpha {
   font-size: 3rem;
 }
@@ -96,11 +107,6 @@
   background-color: #E2E2E2; /*20%*/
   cursor: pointer;
   @include vendor(transition, background 150ms ease);
-
-  &.is-disabled {
-    opacity: 0.6;
-    cursor: default;
-  }
 
   &:not(.is-disabled):hover {
     background-color: #D3D3D3; /*30%*/

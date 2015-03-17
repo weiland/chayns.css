@@ -37,15 +37,18 @@ img{
 }
 
 label,
-input,
+//input,
 textarea,
 button,
 select,
 option{
   cursor:pointer;
 }
-.text-input:active,
-.text-input:focus,
+
+// always hide it
+input:active,
+input:focus,
+button,
 textarea:active,
 textarea:focus{
   cursor:text;

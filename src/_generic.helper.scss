@@ -16,6 +16,12 @@
   text-transform:uppercase!important;
 }
 
+// TODO: remove, cause by default everything is border-box (responsive)
+//.borderbox {
+//  -webkit-box-sizing: border-box;
+//  -moz-box-sizing: border-box;
+//  box-sizing: border-box;
+//}
 
 @mixin accessibility{
   border:0!important;
