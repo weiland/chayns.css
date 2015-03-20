@@ -9,7 +9,7 @@
   margin: 0 auto;
   padding: 15px 10px 20px;
   width: 100%;
-  max-width: $tapp-max-width;
+  max-width: $tapp-popup-width;
 }
 
 .tapp--no-padding {
@@ -19,8 +19,8 @@
 // Wide Tapp: larger layout for popup tapps with max 850px
 //
 // Styleguide 1.2
-.tapp--wide {
-  max-width: $tapp-popup-width;
+.tapp--short {
+  max-width: $tapp-max-width;
 }
 
 // Tapp Intro & Tapp Content

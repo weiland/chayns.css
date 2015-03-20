@@ -21,13 +21,13 @@
 
     $steps: (0,10,20,30,40,50,60,70,80,90,100);
     @each $step in $steps {
-      .color--#{$step} {
+      .#{$name}__color--#{$step} {
         color: lighten($base-color, $step);
       }
-      .background-color--#{$step} {
+      .#{$name}__background-color--#{$step} {
         background-color: lighten($base-color, $step);
       }
-      .border-color--#{$step} {
+      .#{$name}__border-color--#{$step} {
         border-color: lighten($base-color, $step);
       }
     }
@@ -36,6 +36,7 @@
 }
 
 $color-schemes: (
+  0 "black" #000 // default / error theme
   1 "stone" #828282, // also tobit
 //  2 "tobit" "707FAF",
 //  3,
