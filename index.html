@@ -47,6 +47,8 @@
       <button class="button">.button</button>
       <h3 class="headline">Choose Button</h3>
       <button class="button">.button--choose</button>
+      <button class="button" onclick="chayns.dialog.alert('test Alert');">HTML Dialog</button>
+
     </div>
 
     <div class="tapp__content is-dark">
@@ -81,6 +83,21 @@
     --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
   </div>
 
+  <div class="chayns__root" id="chayns-root">
+    <div class="chayns__dialog">
+      <div class="dialog__background"></div>
+      <div class="dialog__content">
+        <div class="dialog__box">
+          <div class="dialog__headline"><h1 class="headline">Headline</h1></div>
+          <div class="dialog__body">Body Text</div>
+          <div class="dialog__buttons">
+            <button class="button" onclick="chayns.dialog.close();">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="//chayns1.tobit.com/SlitteRessource/API/v3/js/chayns.js"></script>
   <script>
     /* global chayns */
@@ -93,9 +110,18 @@
      */
     chayns.ready().then(function(data) {
       log.info('Chayns is ready: ', data);
+
+
+
     }, function() {
       log.info('Chayns is ready without being in Chayns Web or Chayns App.');
     });
+
+//    var chaynsRoot = document.getElementById('chayns-root');
+//    chaynsRoot.querySelector('.chayns__dialog').style.display = 'block';
+//    chaynsRoot.querySelector('.chayns__dialog').style.opacity = '1';
+//    chaynsRoot.querySelector('.dialog__content').style.top = window.innerHeight / 2 - 55 + 'px';
   </script>
+
 </body>
 </html>

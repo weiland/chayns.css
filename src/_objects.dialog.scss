@@ -1,9 +1,45 @@
-.dialog {
+.chayns__dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  opacity: 0;
+  transition: opacity 3000ms ease-in-out;
+}
+
+.dialog__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: .6;
 
 }
 
-.dialog__cover {
+.dialog__content {
+  position: relative;
+  max-width: 430px;
+  margin: 20px;
 
+  @include media-query(desktop)  {
+    margin: 0 auto;
+  }
 }
 
+.dialog__box {
+  padding: 10px;
+  background: #FFF;
+}
 
+.dialog__buttons  {
+  text-align: center;
+  .button {
+    margin: 0 5px;
+    padding: 3px 12px;
+    min-width: 120px;
+  }
+}
