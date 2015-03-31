@@ -130,7 +130,7 @@
     </div>
 
     <div class="tapp__content accordion accordion--margin">
-      <h3 class="headlin">Accordion as Tapp with margin</h3>
+      <h3 class="headline">Accordion as Tapp with margin</h3>
       <div class="accordion__head">Tapp Content Accordion</div>
       <div class="accordion__body">
         <div class="accordion__content">
@@ -196,25 +196,68 @@
     });
 
     var accordion = (function(window, document, undefined) {
-      var accordions = document.querySelectorAll('.accordion .accordion__head');
+      var accordions;
 
       function init() {
-        var handleClickEvent = function handleClickEvent(e) {
-          var accordion = e.currentTarget.parentElement;
-          var height = 0;
-          if (!accordion.classList.contains('accordion--open')) {
-            height = accordion.querySelector('.accordion__content').offsetHeight + 'px';
-          }
-          accordion.querySelector('.accordion__body').style['max-height'] = height;
-          accordion.classList.toggle('accordion--open');
-          e.preventDefault();
-        };
+        accordions = document.querySelectorAll('.accordion .accordion__head');
+//        var handleTouchEvent = function handleTouchEvent(e) {
+//          var target = e.currentTarget;
+//          function listener() {
+//            target.removeEventListener('touchend', listener);
+//            handleClickEvent.call(undefined, e);
+//          }
+//          target.addEventListener('touchend', listener);
+//        };
         var i, l;
         for(i = 0, l = accordions.length; i < l; i++) {
-          accordions[i].addEventListener('click', handleClickEvent);
-          accordions[i].addEventListener('touchstart', handleClickEvent);
+          var accordion = accordions[i];
+          accordion.addEventListener('click', handleClickEvent);
+//          accordion.addEventListener('touchstart', handleTouchEvent);
         }
       }
+
+      function dispose() {
+        accordions.forEach(function(listener) {
+          listener.removeEventListener('click', handleClickEvent);
+        });
+      }
+
+      function handleClickEvent(e) {
+        var accordion = e.currentTarget.parentElement;
+        toggleAccordion(accordion);
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      function toggleAccordion(accordion) {
+        var height = 0;
+        var body = accordion.querySelector('.accordion__body');
+        var classList = accordion.classList;
+        if (!classList.contains('accordion--open')) {
+          trigger(accordion, 'open');
+          height = accordion.querySelector('.accordion__content').offsetHeight + 'px';
+          function listener() {
+            trigger(accordion, 'opened');
+            body.removeEventListener('transitionend', listener);
+          }
+          body.addEventListener('transitionend', listener, false);
+        } else {
+          trigger(accordion, 'close');
+          function listener() {
+            body.removeEventListener('transitionend', listener);
+            trigger(accordion, 'closed');
+          }
+          body.addEventListener('transitionend', listener, false);
+        }
+        body.style['max-height'] = height;
+        classList.toggle('accordion--open');
+      }
+
+      function trigger(element, eventName) {
+        var event = new CustomEvent(eventName);
+        return !element.dispatchEvent(event); // returns cancelled
+      }
+
 
       // Alternative attempt to set the max-height
 //      function addCSSRule(selector, rules) {
@@ -228,11 +271,19 @@
 //      }
 
       return {
-        init: init
+        init: init,
+        dispose: dispose
       };
     })(window, document);
 
     accordion.init();
+
+    // events example
+    var firstAccordion = document.querySelectorAll('.accordion')[2];
+    firstAccordion.addEventListener('open', log.info.bind(log, 'open event'), false);
+    firstAccordion.addEventListener('close', log.info.bind(log, 'close event'), false);
+    firstAccordion.addEventListener('opened', log.info.bind(log, 'closed event'), false);
+    firstAccordion.addEventListener('closed', log.info.bind(log, 'closed event'), false);
 
 //    var chaynsRoot = document.getElementById('chayns-root');
 //    chaynsRoot.querySelector('.chayns__dialog').style.display = 'block';
