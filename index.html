@@ -74,7 +74,82 @@
       <h3 class="headline">Switch</h3>
       TODO: responsive switch
     </div>
+
+    <div class="tapp__content">
+
+      <h2 class="headline">Accordion</h2>
+
+      <div class="accordion accordion--margin">
+        <div class="accordion__head">Inner Accordion</div>
+        <div class="accordion__body">
+          <div class="accordion__content">
+            Text Content
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion__head">Standard Accordion</div>
+        <div class="accordion__body">
+          <div class="accordion__content">
+            Text Content
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion__head">List Accordion</div>
+        <div class="accordion__body">
+          <div class="accordion__content">
+            <div class="item">Item #1</div>
+            <div class="item">Item #2</div>
+            <div class="item">Item #3</div>
+            <div class="item">Item #4</div>
+            <div class="item">Item #5</div>
+            <div class="item">Item #6</div>
+            <div class="item">Item #7</div>
+            <div class="item">Item #8</div>
+            <div class="item">Item #9</div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="tapp__content is-dark">
+      <h3 class="headline">Grey container</h3>
+      <div class="accordion">
+        <div class="accordion__head">Standard Accordion on dark</div>
+        <div class="accordion__body">
+          <div class="accordion__content">
+            Text Content
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tapp__content accordion accordion--margin">
+      <h3 class="headlin">Accordion as Tapp with margin</h3>
+      <div class="accordion__head">Tapp Content Accordion</div>
+      <div class="accordion__body">
+        <div class="accordion__content">
+          Text Content
+        </div>
+      </div>
+    </div>
+
+    <div class="tapp__content accordion">
+      <div class="accordion__head">Tapp Content Accordion</div>
+      <div class="accordion__body">
+        <div class="accordion__content">
+          Text Content
+        </div>
+      </div>
+    </div>
+
   </div>
+
 
   <div class="grid">
     <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
@@ -115,7 +190,49 @@
 
     }, function() {
       log.info('Chayns is ready without being in Chayns Web or Chayns App.');
+    }).then(function() {
+      console.log('finally/always');
+      //FastClick.attach(document.body);
     });
+
+    var accordion = (function(window, document, undefined) {
+      var accordions = document.querySelectorAll('.accordion .accordion__head');
+
+      function init() {
+        var handleClickEvent = function handleClickEvent(e) {
+          var accordion = e.currentTarget.parentElement;
+          var height = 0;
+          if (!accordion.classList.contains('accordion--open')) {
+            height = accordion.querySelector('.accordion__content').offsetHeight + 'px';
+          }
+          accordion.querySelector('.accordion__body').style['max-height'] = height;
+          accordion.classList.toggle('accordion--open');
+          e.preventDefault();
+        };
+        var i, l;
+        for(i = 0, l = accordions.length; i < l; i++) {
+          accordions[i].addEventListener('click', handleClickEvent);
+          accordions[i].addEventListener('touchstart', handleClickEvent);
+        }
+      }
+
+      // Alternative attempt to set the max-height
+//      function addCSSRule(selector, rules) {
+//        var sheet = document.styleSheets[0];
+//        if('insertRule' in sheet) {
+//          sheet.insertRule(selector + "{" + rules + "}", undefined);
+//        }
+//        else if('addRule' in sheet) {
+//          sheet.addRule(selector, rules);
+//        }
+//      }
+
+      return {
+        init: init
+      };
+    })(window, document);
+
+    accordion.init();
 
 //    var chaynsRoot = document.getElementById('chayns-root');
 //    chaynsRoot.querySelector('.chayns__dialog').style.display = 'block';
