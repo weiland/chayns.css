@@ -13,5 +13,5 @@ $fa-css-prefix: icon;
 //@import "../vendor/fontawesome/scss/icons";
 // instead of including all icons we define only ours below
 
-
+// used in Accordions
 .#{$fa-css-prefix}-angle-right:before { content: $fa-var-angle-right; }

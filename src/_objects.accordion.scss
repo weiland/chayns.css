@@ -7,13 +7,15 @@
   margin-top: 10px;
   background: transparent;
 
-  &--margin {
-    margin: 12px;
-
-    @include media-query(desktop) {
-      margin: 25px;
-    }
-  }
+  // used if the same margin as in is-dark is desired
+  // TODO: should be removed, wrong place
+//  &--margin {
+//    margin: 12px;
+//
+//    @include media-query(desktop) {
+//      margin: 25px;
+//    }
+//  }
 
   &__head {
     @extend %content-padding;
