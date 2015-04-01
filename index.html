@@ -240,39 +240,18 @@
       throw new Error('There is no chayns :(');
     }
     var log = chayns.getLogger('pw.css');
-    /**
-     * chayns.ready promise
-     */
-    chayns.ready().then(function(data) {
-      log.info('Chayns is ready: ', data);
 
-
-
-    }, function() {
-      log.info('Chayns is ready without being in Chayns Web or Chayns App.');
-    }).then(function() {
-      console.log('finally/always');
-      //FastClick.attach(document.body);
-    });
 
     var accordion = (function(window, document, undefined) {
       var accordions;
 
       function init() {
         accordions = document.querySelectorAll('.accordion .accordion__head');
-//        var handleTouchEvent = function handleTouchEvent(e) {
-//          var target = e.currentTarget;
-//          function listener() {
-//            target.removeEventListener('touchend', listener);
-//            handleClickEvent.call(undefined, e);
-//          }
-//          target.addEventListener('touchend', listener);
-//        };
+
         var i, l;
         for(i = 0, l = accordions.length; i < l; i++) {
           var accordion = accordions[i];
           accordion.addEventListener('click', handleClickEvent);
-//          accordion.addEventListener('touchstart', handleTouchEvent);
         }
       }
 
@@ -318,37 +297,38 @@
         return !element.dispatchEvent(event); // returns cancelled
       }
 
-
-      // Alternative attempt to set the max-height
-//      function addCSSRule(selector, rules) {
-//        var sheet = document.styleSheets[0];
-//        if('insertRule' in sheet) {
-//          sheet.insertRule(selector + "{" + rules + "}", undefined);
-//        }
-//        else if('addRule' in sheet) {
-//          sheet.addRule(selector, rules);
-//        }
-//      }
-
       return {
         init: init,
         dispose: dispose
       };
     })(window, document);
 
-    accordion.init();
+    /**
+     * chayns.ready promise
+     */
+    chayns.ready().then(function(data) {
+      log.info('Chayns is ready: ', data);
 
-    // events example
-    var firstAccordion = document.querySelectorAll('.accordion')[2];
-    firstAccordion.addEventListener('open', log.info.bind(log, 'open event'), false);
-    firstAccordion.addEventListener('close', log.info.bind(log, 'close event'), false);
-    firstAccordion.addEventListener('opened', log.info.bind(log, 'closed event'), false);
-    firstAccordion.addEventListener('closed', log.info.bind(log, 'closed event'), false);
 
-//    var chaynsRoot = document.getElementById('chayns-root');
-//    chaynsRoot.querySelector('.chayns__dialog').style.display = 'block';
-//    chaynsRoot.querySelector('.chayns__dialog').style.opacity = '1';
-//    chaynsRoot.querySelector('.dialog__content').style.top = window.innerHeight / 2 - 55 + 'px';
+
+    }, function() {
+      log.info('Chayns is ready without being in Chayns Web or Chayns App.');
+    }).then(function() {
+      log.debug('finally/always');
+
+      accordion.init();
+
+      // events example
+      var firstAccordion = document.querySelectorAll('.accordion')[2];
+      firstAccordion.addEventListener('open', log.info.bind(log, 'open event'), false);
+      firstAccordion.addEventListener('close', log.info.bind(log, 'close event'), false);
+      firstAccordion.addEventListener('opened', log.info.bind(log, 'closed event'), false);
+      firstAccordion.addEventListener('closed', log.info.bind(log, 'closed event'), false);
+
+    });
+
+
+
   </script>
 
 </body>
