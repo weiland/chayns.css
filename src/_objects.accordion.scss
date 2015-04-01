@@ -115,3 +115,28 @@
   }
 
 }
+// TODO: adjust color
+@each $color-scheme in $color-schemes {
+  $scheme: nth($color-scheme, 1);
+  $name: nth($color-scheme, 2);
+  $color: nth($color-scheme, 3);
+
+  .chayns-color--#{$scheme} {
+
+    .accordion__head {
+      border-color: mix($color, white, 60%);
+
+      &:hover {
+        background-color: mix($color, white, 60%);
+      }
+    }
+
+    .accordion--open {
+      .accordion__head {
+        background-color: mix($color, white, 60%);
+      }
+    }
+
+  }
+}
+
