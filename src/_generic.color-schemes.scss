@@ -1,52 +1,44 @@
-// TODO: add other colorSchemes and properties
-
-// ice
-.chayns-color--0 {
-  .headline,
-  a {
-    color: #37913C;
-  }
-}
-
-// forest
-
+$steps: (0,10,20,30,40,50,60,70,80,90,100);
 
 @mixin colors-template($scheme, $name, $base-color) {
+
   .chayns-color--#{$scheme} {
 
-    .headline,
     a {
       color: $base-color;
     }
 
-    $steps: (0,10,20,30,40,50,60,70,80,90,100);
-    @each $step in $steps {
-      .#{$name}__color--#{$step} {
-        color: lighten($base-color, $step);
-      }
-      .#{$name}__background-color--#{$step} {
-        background-color: lighten($base-color, $step);
-      }
-      .#{$name}__border-color--#{$step} {
-        border-color: lighten($base-color, $step);
+    .ccs {
+      @each $step in $steps {
+        &__color--#{$step} {
+          color: mix($base-color, white, $step);
+        }
+        &__background-color--#{$step} {
+          background-color: mix($base-color, white, $step);
+          color: if($step <= 60, black, white);
+        }
+        &__border-color--#{$step} {
+          border-color: mix($base-color, white, $step)!important;// has to override existing or non-existing border properties
+        }
       }
     }
-
   }
+
+  @each $step in $steps {
+    .#{$name}__color--#{$step} {
+      color: mix($base-color, white, $step)!important; // has to override nested color classes (e.g. h1, h2 etc)
+    }
+    .#{$name}__background-color--#{$step} {
+      background-color: mix($base-color, white, $step);
+      color: if($step <= 60, black, white);
+    }
+    .#{$name}__border-color--#{$step} {
+      border-color: mix($base-color, white, $step)!important;
+    }
+  }
+
 }
 
-$color-schemes: (
-  0 "black" #000 // default / error theme
-  1 "stone" #828282, // also tobit
-//  2 "tobit" "707FAF",
-//  3,
-  4 "ice" #0055A4,
-  5 "forest" #37913C,
-  6 "raspberry" #AA0000,
-  7 "desert" #9F713A,
-  8 "orange" #FF9800, // pure orange
-  9 "lavender" #5E4883
-) !default;
 
 @each $color-scheme in $color-schemes {
   $scheme: nth($color-scheme, 1);

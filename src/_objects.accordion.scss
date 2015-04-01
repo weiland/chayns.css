@@ -48,11 +48,15 @@
       @extend %content-padding;
     }
 
+    &__item {
+      border-bottom: 1px solid #FFF;
+    }
+
   // reset padding, e.g. for wrapped accordions
-  .no-padding {
+  &--no-padding {
     padding: 0;
 
-    .accordion__item {
+    .accordion__content {
       padding: 0;
     }
   }

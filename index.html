@@ -13,6 +13,13 @@
       margin-bottom: 10px;
     }
 
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-top: 30px;
+    }
+
   </style>
 </head>
 <body>
@@ -26,28 +33,94 @@
     <div class="tapp__content is-dark">
       <h2 class="headline">Overview</h2>
       <ul>
-        <li><a href="#">Style</a></li>
-        <li><a href="#">Functions</a></li>
+        <li><a href="#">Grids</a></li>
+        <li><a href="#">Buttons</a></li>
       </ul>
     </div>
 
     <div class="tapp__content is-dark">
       <h2 class="headline">Grids</h2>
-      <div class="u1/2-mobile u1/2-desktop">1</div>
-      <div class="u1/2-mobile u1/2-desktop">1</div>
+      <div class="grid"><div class="grid__item c-1-2-mobile c-1-2-desktop">1</div><div class="grid__item c-1-2-mobile c-1-2-desktop">1</div></div>
+      <div class="grid">
+        <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
+    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
+    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
+    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+      </div>
       <h3 class="headline">Table</h3>
+      <table>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
       <h3 class="headline">CSS Table</h3>
+      <div class="table">
+        <div class="table__row">
+          <div class="table__cell"></div>
+        </div>
+        <div class="table__row">
+          <div class="table__cell"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tapp__content is-dark">
+      <h2>Headlines</h2>
+      <h1>H1 Headline</h1>
+      <h2>H2 Headline</h2>
+      <h3>H3 Headline</h3>
+      <h4>H4 Headline</h4>
+      <h5>H5 Headline</h5>
+      <h6>H6 Headline (not styled and should not be used)</h6>
+    </div>
+
+    <div class="tapp__content is-dark">
+      <h2>ColorSchemes</h2>
+      <h3>BackgroundColor</h3>
+      <div class="ccs__background-color--0">0</div>
+      <div class="ccs__background-color--10">10</div>
+      <div class="ccs__background-color--20">20</div>
+      <div class="ccs__background-color--30">30</div>
+      <div class="ccs__background-color--40">40</div>
+      <div class="ccs__background-color--50">50</div>
+      <div class="ccs__background-color--60">60</div>
+      <div class="ccs__background-color--70">70</div>
+      <div class="ccs__background-color--80">80</div>
+      <div class="ccs__background-color--90">90</div>
+      <div class="ccs__background-color--100">100</div>
+
+      <h3>Color</h3>
+      <div class="ccs__color--0">color scheme 0</div>
+      <div class="ccs__color--90">color scheme 90</div>
+      <div class="ccs__color--100">color scheme 100</div>
+
+      <h3>Border Color</h3>
+      <input  style="border: 1px solid;" class="ccs__border-color--80">
+
+      <h3>Different Theme</h3>
+      <h4 class="raspberry__color--100">Raspberry Theme</h4>
+      <div class="raspberry__background-color--80">Test</div>
     </div>
 
     <div class="tapp__content is-dark">
       <h2 class="headline">Buttons</h2>
       <h3 class="headline">Standard Button</h3>
-      <pre class="code"><code>Button Code</code></pre>
-      <div class="button">.button</div>
-      <button class="button">.button</button>
+      <p>
+        <div class="button">.button</div>
+        <button class="button">.button</button>
+        <div class="button button--disabled">.button--disabled</div>
+      </p>
+      <!--<pre class="code"><code>Button Code</code></pre>-->
       <h3 class="headline">Choose Button</h3>
-      <button class="button">.button--choose</button>
-      <button class="button" onclick="chayns.dialog.alert('test Alert');">HTML Dialog</button>
+      <p>
+        <div class="choosebutton">.choosebutton</div>
+        <button class="choosebutton" onclick="chayns.dialog.alert('test Alert');">HTML Dialog</button>
+        <div class="choosebutton is-disabled">.button--disabled</div>
+      </p>
 
     </div>
 
@@ -88,11 +161,26 @@
         </div>
       </div>
 
-      <div class="accordion">
-        <div class="accordion__head">Standard Accordion</div>
+      <div class="accordion accordion--no-padding">
+        <div class="accordion__head">Wrapped Accordion</div>
         <div class="accordion__body">
           <div class="accordion__content">
-            Text Content
+            <div class="accordion">
+              <div class="accordion__head">Inner Accordion</div>
+              <div class="accordion__body">
+                <div class="accordion__content">
+                  Text Content
+                </div>
+              </div>
+            </div>
+            <div class="accordion">
+              <div class="accordion__head">Inner Accordion</div>
+              <div class="accordion__body">
+                <div class="accordion__content">
+                  Text Content
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -114,7 +202,6 @@
         </div>
       </div>
 
-
     </div>
 
     <div class="tapp__content is-dark">
@@ -129,34 +216,9 @@
       </div>
     </div>
 
-    <div class="tapp__content accordion accordion--margin">
-      <h3 class="headline">Accordion as Tapp with margin</h3>
-      <div class="accordion__head">Tapp Content Accordion</div>
-      <div class="accordion__body">
-        <div class="accordion__content">
-          Text Content
-        </div>
-      </div>
-    </div>
-
-    <div class="tapp__content accordion">
-      <div class="accordion__head">Tapp Content Accordion</div>
-      <div class="accordion__body">
-        <div class="accordion__content">
-          Text Content
-        </div>
-      </div>
-    </div>
 
   </div>
 
-
-  <div class="grid">
-    <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
-  </div>
 
   <div class="chayns__root" id="chayns-root">
     <div class="chayns__dialog">

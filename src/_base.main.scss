@@ -33,7 +33,7 @@ html {
   -webkit-text-size-adjust: 100%; /* [4] */
   -ms-text-size-adjust: 100%; /* [4] */
   -moz-osx-font-smoothing: grayscale; /* [5] */
-  -webkit-font-smoothing: antialiased; /* [5] */
+//  -webkit-font-smoothing: antialiased; /* [5] */
   font-family: $base-font-family;
 }
 
@@ -50,8 +50,9 @@ body {
 // Styleguide 2.1
 
 // paragraph style
-.p:not(:last-child) {
-  margin-bottom: 8px;
+.p:not(:last-child),
+.paragraph {
+  margin-bottom: $base-line-height;
 }
 
 

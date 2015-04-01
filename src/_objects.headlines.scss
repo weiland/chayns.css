@@ -6,32 +6,43 @@
   @include font-size($font-size);
 }
 
-h1,
-.h1 {
-   @include headline($h1-size);
-   color: darken($base-text-color, 10);
+@for $i from 1 through 5  {
+  h#{$i},
+  .h#{$i} {
+    $size: map_get($headline-sizes, $i);
+    @include headline($size);
+  }
 }
 
-h2,
-.h2 {
-  @include headline($h2-size);
-  color: darken($base-text-color, 10);
-}
 
-h3,
-.h3 {
-  @include headline($h3-size);
-  color: darken($base-text-color, 10);
-}
+@each $color-scheme in $color-schemes {
+  $scheme: nth($color-scheme, 1);
+  $name: nth($color-scheme, 2);
+  $color: nth($color-scheme, 3);
 
-h4,
-.h4 {
-  @include headline($h4-size);
-  color: darken($base-text-color, 20);
-}
+  .chayns-color--#{$scheme} {
 
-h5,
-.h5 {
-  @include headline($h5-size);
-  color: darken($base-text-color, 30);
+     h1,
+    .h1,
+     h3,
+    .h3 {
+      color: $color;
+    }
+
+    h2,
+    .h2 {
+      color: mix($color, white, 90%);
+    }
+
+    h4,
+    .h4 {
+      color: mix($color, white, 80%);
+    }
+
+    h5,
+    .h5 {
+      color: mix($color, white, 60%);
+    }
+
+  }
 }
