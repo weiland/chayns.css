@@ -2,6 +2,9 @@
 
 // own config which overrides fa default
 $fa-css-prefix: icon;
+$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts"; // for referencing Bootstrap CDN font files directly
+//$fa-font-path: "../vendor/fontawesome/fonts"; // TODO: place on chayns1
+
 
 @import "../vendor/fontawesome/scss/variables";
 @import "../vendor/fontawesome/scss/mixins";
