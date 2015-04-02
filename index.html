@@ -129,21 +129,26 @@
       <br>
       <input type="text" class="input input--dark" name="text" placeholder="Text">
       <h3 class="headline">Checkbox</h3>
+      <input type="checkbox" class="checkbox" name="check" id="check">
       <label for="check">
-        <input type="checkbox" name="check" id="check">
-        Checkbox
+        <span></span>Checkbox
       </label>
       <h3 class="headline">Radiobox</h3>
+
+      <input type="radio" class="radio" name="radio" id="radio">
       <label for="radio">
-        <input type="radio" name="radio" id="radio">
+        <span></span>
         Radio
       </label>
+
+      <input type="radio" class="radio" name="radio" id="radio2">
       <label for="radio2">
-        <input type="radio" name="radio" id="radio2">
+        <span></span>
         Radio
       </label>
       <h3 class="headline">Switch</h3>
-      TODO: responsive switch
+      <input type="checkbox" class="switch" id="switch">
+      <label for="switch" data-on="On" data-off="Off"></label>
     </div>
 
     <div class="tapp__content">
@@ -175,11 +180,9 @@
         <div class="accordion__body">
 
           <div class="accordion accordion--wrapped">
-            <div class="accordion__head arrow-background no-arrow">
+            <div class="accordion__head arrow-box">
               Inner Accordion #1
-              <div class="right">
-                <span class="box">23 €</span>
-                <div class="arrow"></div></div>
+              <span class="box right">23 €</span>
             </div>
             <div class="accordion__body">
               <div class="accordion__content">

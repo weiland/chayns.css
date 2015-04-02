@@ -19,8 +19,9 @@
 
   &__head {
     @extend %content-padding;
+    @extend .non-selectable;
     padding-bottom: 5px;
-    border-bottom: 1px solid #ccddec;
+    border-bottom: 1px solid #cccccc;
     position: relative;
     background-color: transparent;
     transition: background-color 400ms ease, font-weight 300ms;
@@ -30,13 +31,12 @@
       background-color: transparent;
 
       @include media-query(desktop) {
-        background-color: #ccddec;
+        background-color: #cccccc;
       }
     }
 
     // arrow, is displayed as default
-    &:after,
-    .arrow:after {
+    &:after {
       font-family: FontAwesome;
       content: "\f105";
       line-height: 24px;
@@ -44,16 +44,7 @@
       font-weight: normal;
       transform: rotate(0deg);
       transition: transform 300ms;
-    }
-
-    // default arrow
-    &:after {
       float: right; // we use floats as default
-    }
-
-    // alternative arrow (can be used to place it on a differen position)
-    .arrow {
-      display: inline-block;
     }
 
     &.arrow-box:before {
@@ -112,7 +103,7 @@
   // sate open
   &--open {
     & > .accordion__head {
-      background-color: #ccddec;
+      background-color: #cccccc;
       font-weight: bold;
 
       &:after {
