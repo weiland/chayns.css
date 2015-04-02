@@ -7,18 +7,6 @@
   margin-top: 10px;
   background: transparent;
 
-  .arrow {
-    float: right;
-    font-size: (4em / 3);
-    line-height: (3em / 4);
-    vertical-align: -15%;
-  }
-
-  .arrow .icon {
-    transform: rotate(0deg);
-    transition: transform 300ms ease-in-out;
-  }
-
   // used if the same margin as in is-dark is desired
   // TODO: should be removed, wrong place
 //  &--margin {
@@ -33,6 +21,7 @@
     @extend %content-padding;
     padding-bottom: 5px;
     border-bottom: 1px solid #ccddec;
+    position: relative;
     background-color: transparent;
     transition: background-color 400ms ease, font-weight 300ms;
 
@@ -44,6 +33,65 @@
         background-color: #ccddec;
       }
     }
+
+    // arrow, is displayed as default
+    &:after,
+    .arrow:after {
+      font-family: FontAwesome;
+      content: "\f105";
+      line-height: 24px;
+      font-size: 24px;
+      font-weight: normal;
+      transform: rotate(0deg);
+      transition: transform 300ms;
+    }
+
+    // default arrow
+    &:after {
+      float: right; // we use floats as default
+    }
+
+    // alternative arrow (can be used to place it on a differen position)
+    .arrow {
+      display: inline-block;
+    }
+
+    &.arrow-box:before {
+      position: absolute;
+      right: 2px;
+      width: 26px;
+      height: 24px;
+      background-color: #E2E2E2;
+      content: " ";
+      display: block;
+    }
+
+    // element to place content on head's right-hand side
+    .right {
+      line-height: 22px;
+      position: absolute;
+      display: inline-block;
+      right: 32px;
+    }
+
+    // hide the arrow
+    &.no-arrow {
+      &:after {
+        display: none;
+      }
+      .right {
+        right: 0;
+      }
+    }
+
+    .box {
+      padding: 1px 15px;
+      display: inline-block;
+      font-size: .9em;
+      font-weight: normal; // should no be bold in an active accordion head
+    }
+
+    .choosebutton {padding: 1px 15px;} // adjust choosebuttons
   }
 
   &__body {
@@ -55,6 +103,7 @@
     transition: max-height .5s cubic-bezier(0, 1, 0, 1) -.1s;
   }
 
+  // only used for the padding
   &__content {
     @extend %content-padding;
   }
@@ -66,7 +115,7 @@
       background-color: #ccddec;
       font-weight: bold;
 
-      .arrow .icon {
+      &:after {
         transform: rotate(90deg);
       }
     }
@@ -78,44 +127,33 @@
     }
   }
 
-  // if there is another accordion in this accordion
+  // if this accordion is in another accordion
   &--wrapped {
+    margin: 0;
 
-    .accordion {
-      margin: 0;
+    .accordion__head {
+//      margin-left: 14px; // + 5px cause it is nested
+      border-bottom: 1px solid #FFF!important; // has to overwrite nested color definition
+      background-color: transparent!important; // has to overwrite hover state as well
     }
+  }
 
-    & > .accordion__body {
+  // cannot be closed, no arrows, should be used with --open
+  &--fixed {
+    .accordion__head {
 
-      .accordion__head {
-        border-bottom: 1px solid #FFF;
+      &:hover {
+        cursor: default;
+      }
 
-        background-color: transparent!important; // has to overwrite hover state as well
+      &:after {
+        visibility: hidden;
       }
     }
   }
 
-  // cannot be closed, no arrows
-  &--fixed {
-    .accordion__head:hover {
-      cursor: default;
-    }
-    .accordion__arrow {
-      visibility: hidden;
-    }
-  }
-
-  // reset padding, e.g. for wrapped accordions
-  &--no-padding {
-    padding: 0;
-
-    .accordion__content {
-      padding: 0;
-    }
-  }
-
 }
-// TODO: adjust color
+
 @each $color-scheme in $color-schemes {
   $scheme: nth($color-scheme, 1);
   $name: nth($color-scheme, 2);
@@ -124,16 +162,19 @@
   .chayns-color--#{$scheme} {
 
     .accordion__head {
-      border-color: mix($color, white, 60%);
+      border-color: mix($color, white, 20%);
 
-      &:hover {
-        background-color: mix($color, white, 60%);
+
+      &:hover,
+      &.arrow-box:before,
+      .box {
+        background-color: mix($color, white, 20%);
       }
     }
 
     .accordion--open {
       .accordion__head {
-        background-color: mix($color, white, 60%);
+        background-color: mix($color, white, 20%);
       }
     }
 
