@@ -45,34 +45,31 @@ input[type=radio][disabled] {
   & + label {
     @extend .non-selectable;
     display: inline-block;
-//    width: 30px;
-    height: 22px;
-    position: relative;
-    background-color: #333;
 
     &:before,
     &:after {
-      position: absolute;
+      min-width: 30px;
+      height: 32px;
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 90%;
+      text-align: center;
     }
 
     &:before {
       content: attr(data-on);
-      background-color: #CCC;
     }
     &:after {
       content: attr(data-off);
-      left: 20px;
     }
   }
 
-  &:checked + label span {
+  &:checked + label {
     &:before {
-      content: attr(data-on);
+
     }
     &:after {
-      content: attr(data-off);
-      left: 20px;
-      background-color: #CCC;
+
     }
   }
 }
@@ -119,10 +116,37 @@ input[type=radio][disabled] {
 .input:-moz-placeholder           { color: #AAA; font-weight: normal;}
 .input::-moz-placeholder          { color: #AAA; font-weight: normal;}
 
+// Color Schemes
+@each $color-scheme in $color-schemes {
+  $scheme: nth($color-scheme, 1);
+  $name: nth($color-scheme, 2);
+  $color: nth($color-scheme, 3);
 
-// Check boxes
+  .chayns-color--#{$scheme} {
 
+    .switch {
 
-// Radio boxex
+      & + label {
+        &:before {
+          background-color: mix($color, white, 80%);
+          color: mix($color, white, 80%);
+        }
+        &:after {
+          background-color: mix($color, white, 20%);
+        }
+      }
 
-// Switch Buttons
+      &:checked + label {
+        &:before {
+          background-color: mix($color, white, 20%);
+        }
+        &:after {
+          background-color: mix($color, white, 80%);
+          color: mix($color, white, 80%);
+        }
+      }
+
+    }
+
+  }
+}

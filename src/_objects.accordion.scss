@@ -7,16 +7,6 @@
   margin-top: 10px;
   background: transparent;
 
-  // used if the same margin as in is-dark is desired
-  // TODO: should be removed, wrong place
-//  &--margin {
-//    margin: 12px;
-//
-//    @include media-query(desktop) {
-//      margin: 25px;
-//    }
-//  }
-
   &__head {
     @extend %content-padding;
     @extend .non-selectable;
@@ -36,25 +26,28 @@
     }
 
     // arrow, is displayed as default
+    .arrow:after,
     &:after {
       font-family: FontAwesome;
       content: "\f105";
       line-height: 24px;
       font-size: 24px;
       font-weight: normal;
-      transform: rotate(0deg);
+//      transform: rotate(0deg);
       transition: transform 300ms;
+    }
+
+    &:after {
       float: right; // we use floats as default
     }
 
-    &.arrow-box:before {
-      position: absolute;
-      right: 2px;
-      width: 26px;
+    .arrow {
+      width: 24px;
       height: 24px;
+      display: inline-block;
       background-color: #E2E2E2;
-      content: " ";
-      display: block;
+      float: left;
+      text-align: center;
     }
 
     // element to place content on head's right-hand side
@@ -65,13 +58,13 @@
       right: 32px;
     }
 
-    // hide the arrow
+    // hide the default arrow (has to be used in order to use .arrow)
     &.no-arrow {
       &:after {
         display: none;
       }
       .right {
-        right: 0;
+        right: 1px;
       }
     }
 
@@ -99,14 +92,14 @@
     @extend %content-padding;
   }
 
-
   // sate open
   &--open {
     & > .accordion__head {
       background-color: #cccccc;
       font-weight: bold;
 
-      &:after {
+      &:after,
+      .arrow:after {
         transform: rotate(90deg);
       }
     }
@@ -122,10 +115,24 @@
   &--wrapped {
     margin: 0;
 
-    .accordion__head {
+    & > .accordion__head {
 //      margin-left: 14px; // + 5px cause it is nested
-      border-bottom: 1px solid #FFF!important; // has to overwrite nested color definition
       background-color: transparent!important; // has to overwrite hover state as well
+      border-bottom: 0!important; // has to overwrite the color below
+    }
+
+    & > .accordion__body {
+      border-bottom: 1px solid #FFF!important; // has to overwrite nested color definition
+    }
+
+    &:last-child  > .accordion__body {
+      border-bottom: 0!important; // has to overwrite nested color definition
+    }
+
+    &.accordion--open {
+      .accordion__body {
+//        padding-bottom: 20px;
+      }
     }
   }
 
@@ -153,11 +160,11 @@
   .chayns-color--#{$scheme} {
 
     .accordion__head {
+
       border-color: mix($color, white, 20%);
 
-
       &:hover,
-      &.arrow-box:before,
+      .arrow
       .box {
         background-color: mix($color, white, 20%);
       }

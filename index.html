@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js chayns--web" lang="en">
+<html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>chayns.css dev page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="dist/chayns.css">
@@ -179,8 +180,8 @@
         <div class="accordion__head">Wrapped Accordion</div>
         <div class="accordion__body">
 
-          <div class="accordion accordion--wrapped">
-            <div class="accordion__head arrow-box">
+          <div class="accordion accordion--wrapped" data-group-id="1">
+            <div class="accordion__head">
               Inner Accordion #1
               <span class="box right">23 €</span>
             </div>
@@ -191,12 +192,14 @@
             </div>
           </div>
 
-          <div class="accordion accordion--wrapped">
-            <div class="accordion__head">
+          <div class="accordion accordion--wrapped" data-group-id="1">
+            <div class="accordion__head no-arrow">
               Inner Accordion #2
               <div class="right">
+                <div class="arrow">
+                </div>
                 <span class="state">hello -> </span>
-                <div class="box ">guy</div>
+                <div class="box">guy</div>
                 <div class="choosebutton">buy</div>
               </div>
             </div>
@@ -207,12 +210,17 @@
             </div>
           </div>
 
-          <div class="accordion accordion--wrapped">
-            <div class="accordion__head arrow-box">Inner Accordion #3</div>
+          <div class="accordion accordion--wrapped" data-group-id="1">
+            <div class="accordion__head">
+              Inner Accordion #3
+              <div class="right">
+                <div class="arrow"></div>
+              </div>
+            </div>
             <div class="accordion__body">
 
               <div class="accordion accordion--wrapped">
-                <div class="accordion__head no-arrow">Inner Inner Accordion</div>
+                <div class="accordion__head no-arrow">Inner Inner Accordion w.o arrow</div>
                 <div class="accordion__body">
                   <div class="accordion__content">Text Content</div>
                 </div>
@@ -221,14 +229,14 @@
               <div class="accordion accordion--wrapped">
                 <div class="accordion__head arrow">Inner Inner Accordion +</div>
                 <div class="accordion__body">
-                  <div class="accordion accordion--wrapped">
+                  <div class="accordion">
                     <div class="accordion__head">Inner Inner Inner Accordion</div>
                     <div class="accordion__body">
                       <div class="accordion__content">Text Content</div>
                     </div>
                   </div>
 
-                  <div class="accordion accordion--wrapped">
+                  <div class="accordion">
                     <div class="accordion__head">Inner Inner Inner Accordion</div>
                     <div class="accordion__body">
                       <div class="accordion__content">Text Content</div>
@@ -267,7 +275,16 @@
       <div class="accordion">
         <div class="accordion__head">Standard Accordion on dark</div>
         <div class="accordion__body">
-            Text Content
+          <div class="accordion__content">
+            <div class="accordion">
+              <div class="accordion__head">Standard Accordion on dark</div>
+              <div class="accordion__body">
+                <div class="accordion__content">
+                  Text Content
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -297,78 +314,17 @@
     }
     var log = chayns.getLogger('pw.css');
 
-
-    var accordion = (function(window, document, undefined) {
-      var accordions;
-
-      function init() {
-        accordions = document.querySelectorAll('.accordion .accordion__head');
-
-        var i, l;
-        for(i = 0, l = accordions.length; i < l; i++) {
-          var accordion = accordions[i];
-          accordion.addEventListener('click', handleClickEvent);
-        }
-      }
-
-      function dispose() {
-        accordions.forEach(function(listener) {
-          listener.removeEventListener('click', handleClickEvent);
-        });
-      }
-
-      function handleClickEvent(e) {
-        var accordion = e.currentTarget.parentElement;
-        toggleAccordion(accordion);
-        e.preventDefault();
-        e.stopPropagation();
-      }
-
-      function toggleAccordion(accordion) {
-        var body = accordion.querySelector('.accordion__body');
-        var classList = accordion.classList;
-        if (!classList.contains('accordion--open')) {
-          trigger(accordion, 'open');
-          function listener() {
-            trigger(accordion, 'opened');
-            body.removeEventListener('transitionend', listener);
-          }
-          body.addEventListener('transitionend', listener, false);
-        } else {
-          trigger(accordion, 'close');
-          function listener() {
-            body.removeEventListener('transitionend', listener);
-            trigger(accordion, 'closed');
-          }
-          body.addEventListener('transitionend', listener, false);
-        }
-        classList.toggle('accordion--open');
-      }
-
-      function trigger(element, eventName) {
-        var event = new CustomEvent(eventName);
-        return !element.dispatchEvent(event); // returns cancelled
-      }
-
-      return {
-        init: init,
-        dispose: dispose
-      };
-    })(window, document);
-
     /**
      * chayns.ready promise
      */
-    chayns.ready().then(function(data) {
+    chayns.ready.then(function(data) {
       log.info('Chayns is ready: ', data);
-
-
     }, function() {
       log.info('Chayns is ready without being in Chayns Web or Chayns App.');
     }).then(function() {
       log.debug('finally/always');
 
-      accordion.init();
+//      accordion.init();// the chayns api does that. if you update accordions, recall it
 
       // events example
       var firstAccordion = document.querySelectorAll('.accordion')[2];
