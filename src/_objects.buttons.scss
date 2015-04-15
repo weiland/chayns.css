@@ -100,7 +100,7 @@
   padding: 2px 15px;
   background-color: #E2E2E2;
   cursor: pointer;
-  color: #000;
+//  color: #000;
   @include vendor(transition, background 150ms ease);
 
   &.is-disabled {
