@@ -26,8 +26,8 @@
 html {
   font-size: ($base-font-size / 16px) * 1em; /* [1] */
   line-height: $base-line-height / $base-font-size; /* [1] */
-  background-color: $base-background-color;
-  color: $base-text-color;
+//  background-color: $base-background-color;
+//  color: $base-text-color;
   overflow-y: scroll; /* [2] */
   min-height: 100%; /* [3] */
   -webkit-text-size-adjust: 100%; /* [4] */
@@ -40,6 +40,11 @@ html {
 body {
 
 }
+
+[chayns-cloak] {
+  visibility: hidden;
+}
+
 
 // Base Style
 //
@@ -61,6 +66,11 @@ body {
 // Styleguide 2.3
 ul {
   list-style: none;
+}
+
+ol {
+//  padding-left: 0;
+  list-style-position: inside;
 }
 
 .list {

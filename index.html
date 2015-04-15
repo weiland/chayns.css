@@ -39,12 +39,12 @@
 
     <div class="tapp__content is-dark">
       <h2 class="headline">Grids</h2>
-      <div class="grid"><div class="grid__item c-1-2-mobile c-1-2-desktop">1</div><div class="grid__item c-1-2-mobile c-1-2-desktop">1</div></div>
+      <div class="grid"><div class="grid__item grid-1-2-mobile grid-1-2-desktop">1</div><div class="grid__item grid-1-2-mobile grid-1-2-desktop">1</div></div>
       <div class="grid">
-        <div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div><!--
-    --><div class="grid__item c-1-2-mobile c-1-4-desktop">50</div>
+        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
+        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
+        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
+        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
       </div>
       <h3 class="headline">Table</h3>
       <table>
@@ -211,7 +211,7 @@
           </div>
 
           <div class="accordion accordion--wrapped" data-group-id="1">
-            <div class="accordion__head">
+            <div class="accordion__head no-arrow">
               Inner Accordion #3
               <div class="right">
                 <div class="arrow"></div>
@@ -312,15 +312,19 @@
     if (typeof chayns === 'undefined') {
       throw new Error('There is no chayns :(');
     }
+
     var log = chayns.getLogger('pw.css');
+    log.debug('test 1');
+    chayns.utils.setLevel(chayns.utils.levels.error);
+    log.debug('test 2');
 
     /**
      * chayns.ready promise
      */
     chayns.ready.then(function(data) {
       log.info('Chayns is ready: ', data);
-    }, function() {
-      log.info('Chayns is ready without being in Chayns Web or Chayns App.');
+    }, function(e) {
+      log.error('Chayns is ready without being in Chayns Web or Chayns App.', e);
     }).then(function() {
       log.debug('finally/always');
 

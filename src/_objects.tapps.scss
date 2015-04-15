@@ -57,6 +57,17 @@
 
 }
 
+.chayns--parent {
+
+  overflow: auto;
+
+  body {
+    overflow: auto;
+  }
+
+
+}
+
 // TODO: fix mq
 @include media-query(desktop)  {
 

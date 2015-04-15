@@ -12,6 +12,7 @@
 }
 
 .grid__item {
+  margin-right: -4px;
   display: inline-block;
   width: 100%;
   padding-left: $base-spacing-unit;
@@ -140,7 +141,7 @@
     // If we’re trying to make wholes, just spit a 100% width utility out
     // one time only.
     @if ($widths-denominator == 1) {
-      .c-1-1#{$widths-breakpoint} {
+      .grid-1-1#{$widths-breakpoint} {
         width: 100% !important;
       }
     } @else {
@@ -150,7 +151,7 @@
       @for $widths-numerator from 1 to $widths-denominator {
 
         // Build a class in the format `.c-3/4` or `.c-3-of-4`.
-        .c-#{$widths-numerator}-#{$widths-denominator}#{$widths-breakpoint} {
+        .grid-#{$widths-numerator}-#{$widths-denominator}#{$widths-breakpoint} {
           width: ($widths-numerator / $widths-denominator) * 100% !important;
         }
 

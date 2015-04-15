@@ -33,7 +33,7 @@
       line-height: 24px;
       font-size: 24px;
       font-weight: normal;
-//      transform: rotate(0deg);
+      transform: rotate(0deg);
       transition: transform 300ms;
     }
 
@@ -41,7 +41,12 @@
       float: right; // we use floats as default
     }
 
+    .arrow:after {
+      display: inline-block;
+    }
+
     .arrow {
+      margin: 0 4px;
       width: 24px;
       height: 24px;
       display: inline-block;
@@ -64,18 +69,22 @@
         display: none;
       }
       .right {
-        right: 1px;
+        right: 9px;
       }
     }
 
     .box {
+      margin-left: 5px;
       padding: 1px 15px;
       display: inline-block;
       font-size: .9em;
       font-weight: normal; // should no be bold in an active accordion head
     }
 
-    .choosebutton {padding: 1px 15px;} // adjust choosebuttons
+    .choosebutton {
+      margin-left: 5px;
+      padding: 1px 15px;
+    } // adjust choosebuttons
   }
 
   &__body {
@@ -90,6 +99,10 @@
   // only used for the padding
   &__content {
     @extend %content-padding;
+  }
+
+  &__item:not(:last-child) {
+    border-bottom: 1px solid #FFF;
   }
 
   // sate open
@@ -167,6 +180,11 @@
       .arrow,
       .box {
         background-color: mix($color, white, 20%);
+      }
+
+      &:after,
+      .arrow {
+        color: mix($color, white, 80%);
       }
     }
 

@@ -1,7 +1,8 @@
 *{
   &,
   &:before,
-  &:after{
+  &:after
+  {
     @include vendor(box-sizing, border-box);
   }
 }
@@ -26,7 +27,7 @@ label,
 textarea,
 button,
 select,
-option{
+option {
   cursor:pointer;
 }
 
@@ -35,7 +36,7 @@ input:active,
 input:focus,
 button,
 textarea:active,
-textarea:focus{
+textarea:focus {
   cursor:text;
   outline:none;
 }
