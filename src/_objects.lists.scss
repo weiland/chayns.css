@@ -1,0 +1,23 @@
+// Lists
+//
+// Styleguide 2.3
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style-position: inside;
+}
+
+.list {
+  margin-bottom: 15px;
+}
+
+.list--square {
+  padding-left: 30px;
+  list-style-type: square;
+}
+
+.list--vertical {
+  float: left;
+}
