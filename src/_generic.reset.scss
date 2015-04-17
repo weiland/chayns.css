@@ -1,4 +1,4 @@
-*{
+* {
   &,
   &:before,
   &:after
@@ -13,34 +13,32 @@ p,blockquote,pre,
 dl,dd,ol,ul,
 form,fieldset,legend,
 table,th,td,caption,
-hr{
-  margin:0;
-  padding:0;
+hr {
+  margin: 0;
+  padding: 0;
 }
 
-img{
-  font-style:italic;
+img {
+  font-style: italic;
 }
 
 label,
-//input,
 textarea,
 button,
 select,
 option {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-// always hide it
 input:active,
 input:focus,
 button,
 textarea:active,
 textarea:focus {
-  cursor:text;
-  outline:none;
+  cursor: text;
+  outline: none;
 }
 
 button {
-  border:0;
+  border: 0;
 }

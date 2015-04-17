@@ -8,7 +8,7 @@ $base-font-size:    14px!default; // equals 16px
 $base-line-height:  24px!default;
 
 //$tobit-font-family:  Tahoma, "Lucida Grande", Arial, sans-serif!default;
-$base-font-family:  'Roboto', sans-serif!default;
+$base-font-family:  'Roboto', Helvetica Neue, Helvetica, sans-serif!default;
 
 $base-text-color:   #545454!default;
 $base-background-color: #fff;
@@ -30,12 +30,11 @@ $headline-sizes: (
   4: 14px,
   5: 12px
 ) !default;
-//$h6-size:           10px!default; // .epsilon
-// would continue with 10, or 36, 48, 72, 96
 
-// tapps
-$tapp-popup-width:  850px;
-$tapp-max-width:    600px;
+// tapps width
+$tapp-max-width:        600px;
+$tapp-exclusive-width:  850px;
+
 
 // Mr Grey is expecting you
 $grey:              #6E6E6E;

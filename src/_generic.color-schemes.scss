@@ -4,10 +4,6 @@ $steps: (0,10,20,30,40,50,60,70,80,90,100);
 
   .chayns-color--#{$scheme} {
 
-   .tapp a {
-      color: $base-color;
-    }
-
     .ccs {
       @each $step in $steps {
         &__color--#{$step} {
@@ -39,10 +35,10 @@ $steps: (0,10,20,30,40,50,60,70,80,90,100);
 
 }
 
-
-@each $color-scheme in $color-schemes {
-  $scheme: nth($color-scheme, 1);
-  $name: nth($color-scheme, 2);
-  $color: nth($color-scheme, 3);
-  @include colors-template($scheme, $name, $color);
-}
+// currently not used and not really considered as required
+//@each $color-scheme in $color-schemes {
+//  $scheme: nth($color-scheme, 1);
+//  $name: nth($color-scheme, 2);
+//  $color: nth($color-scheme, 3);
+//  @include colors-template($scheme, $name, $color);
+//}

@@ -11,7 +11,7 @@
 
 
 label,
-.label{
+.label {
   display:block;
 }
 
@@ -63,15 +63,6 @@ input[type=radio][disabled] {
       content: attr(data-off);
     }
   }
-
-  &:checked + label {
-    &:before {
-
-    }
-    &:after {
-
-    }
-  }
 }
 
 .checkbox {
@@ -99,7 +90,6 @@ input[type=radio][disabled] {
   }
 
 }
-
 
 .radio {
   @extend .checkbox;

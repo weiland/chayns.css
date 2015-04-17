@@ -18,7 +18,7 @@
 // $value... - CSS Value
 //
 // Compatible in IE8+, Firefox 2+, Safari 4+.
-@mixin vendor($property, $value...){
+@mixin vendor($property, $value...) {
   -webkit-#{$property}:$value;
   -moz-#{$property}:$value;
   -ms-#{$property}:$value;

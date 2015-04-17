@@ -39,12 +39,12 @@
 
     <div class="tapp__content is-dark">
       <h2 class="headline">Grids</h2>
-      <div class="grid"><div class="grid__item grid-1-2-mobile grid-1-2-desktop">1</div><div class="grid__item grid-1-2-mobile grid-1-2-desktop">1</div></div>
+      <div class="grid"><div class="grid__item col-1-2-mobile col-1-2-desktop">1</div><div class="grid__item col-1-2-mobile col-1-2-desktop">1</div></div>
       <div class="grid">
-        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
-        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
-        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
-        <div class="grid__item grid-1-2-mobile grid-1-4-desktop">50</div>
+        <div class="grid__item col-1-2-mobile col-1-4-desktop">50</div>
+        <div class="grid__item col-1-2-mobile col-1-4-desktop">50</div>
+        <div class="grid__item col-1-2-mobile col-1-4-desktop">50</div>
+        <div class="grid__item col-1-2-mobile col-1-4-desktop">50</div>
       </div>
       <h3 class="headline">Table</h3>
       <table>
@@ -315,7 +315,7 @@
 
     var log = chayns.getLogger('pw.css');
     log.debug('test 1');
-    chayns.utils.setLevel(chayns.utils.levels.error);
+    chayns.utils.setLevel(chayns.utils.levels.debug);
     log.debug('test 2');
 
     /**

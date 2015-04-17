@@ -1,11 +1,12 @@
 // Links
 //
-// TODO: underlined or bold?
+//
 //
 // Styleguide 2.2
 .tapp a {
   text-decoration: none;
   color: $base-link-color;
+  font-weight: bold;
 
   &:hover,
   &:active,
@@ -14,15 +15,27 @@
   }
 }
 
-// TODO: still useful?
 .link--background {
-  background-color: #E2E2E2;/*20%*/
+  background-color: #E2E2E2; // 20% color
 }
 
 .link--icon {
   font-family: 'FontAwesome';
-  color: #8A8A8A;/*80%*/
+  color: #8A8A8A; // 80% color
   content: "\f08e";
   padding: 0 5px;
   text-decoration: none;
+}
+
+@each $color-scheme in $color-schemes {
+  $scheme: nth($color-scheme, 1);
+  $name: nth($color-scheme, 2);
+  $color: nth($color-scheme, 3);
+
+  .chayns-color--#{$scheme} {
+    .tapp a {
+//      color: mix($color, white, 20%);
+      color: $color;
+    }
+  }
 }

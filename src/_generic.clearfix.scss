@@ -1,3 +1,5 @@
+// rather extend your scss class than using .cf
+.clearfix,
 .cf {
   &:after {
     content: "";
