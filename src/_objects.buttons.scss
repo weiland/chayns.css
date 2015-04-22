@@ -26,8 +26,9 @@
   &:not(.button--disabled) {
     &:hover,
     &:focus,
-    &.is-active {
+    &.button--active {
       background-color: #8A8A8A;
+      outline: none;
     }
   }
 
@@ -108,11 +109,14 @@
     opacity: .6;
   }
 
-  &:not(.is-disabled):hover {
+  &:not(.is-disabled):hover,
+  &:not(.is-disabled):focus {
     background-color: #D3D3D3;
+    outline: none;
   }
 
 }
+
 
 @each $color-scheme in $color-schemes {
   $scheme: nth($color-scheme, 1);
@@ -124,18 +128,28 @@
     .button {
       background-color: mix($color, white, 90%);
 
-      &:not(.button--disabled):hover {
-        background-color: mix($color, white, 100%);
+      &:not(.button--disabled) {
+        &:hover,
+        &:focus,
+        &.button--active {
+          background-color: mix($color, white, 100%);
+        }
       }
+
     }
 
     .choosebutton,
     .button--choose {
       background-color: mix($color, white, 20%);
 
-      &:not(.is-disabled):hover {
-        background-color: mix($color, white, 30%);
+      &:not(.is-disabled) {
+        &:hover,
+        &:focus,
+        &.button--active {
+          background-color: mix($color, white, 30%);
+        }
       }
+
     }
 
   }

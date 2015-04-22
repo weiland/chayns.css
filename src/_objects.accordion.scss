@@ -10,6 +10,7 @@
 .accordion {
   margin-top: 10px;
   background: transparent;
+  @extend .non-selectable;
 }
 
 .accordion__head {
@@ -172,6 +173,7 @@
   }
 }
 
+
 @each $color-scheme in $color-schemes {
   $scheme: nth($color-scheme, 1);
   $name: nth($color-scheme, 2);
@@ -201,5 +203,12 @@
       }
     }
 
+  }
+}
+
+// mobile hover rewrite
+.chayns--app {
+  .accordion:not(.accordion--open) > .accordion__head:hover {
+    background-color: transparent;
   }
 }
