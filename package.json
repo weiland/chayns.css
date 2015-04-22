@@ -17,11 +17,13 @@
     "node-sass": "^2.0.1",
     "tape": "^3.5.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "clean-css": "^3.2.2"
+  },
   "scripts": {
     "test": "npm run test",
-    "validate": "jshint .",
     "dev": "gulp dev",
+    "release": "cleancss --source-map -o dist/chayns.min.css dist/chayns.css",
     "mount": "open smb://pweiland@chayns1/SlitteRessource",
     "deploy": "gulp build && cp -r ./dist/ /Volumes/SlitteRessource/API/v3/css/"
   },
