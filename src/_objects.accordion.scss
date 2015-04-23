@@ -10,7 +10,6 @@
 .accordion {
   margin-top: 10px;
   background: transparent;
-  @extend .non-selectable;
 }
 
 .accordion__head {
